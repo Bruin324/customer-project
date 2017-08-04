@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Customers</title>
+</head>
+<body>
+<a href="/add-customer">Add a new Customer</a>
+<div th:each="customer : ${customers}">
+    <hr/>
+    Name: <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br/>
+    ID: <a th:href="@{'/view-customer/' + ${customer.id}}"><span th:text="${customer.id}"></span></a><br/>
+    Phone: <span th:text="${customer.phone}"></span><br/>
+    Email: <span th:text="${customer.email}"></span>
+</div>
+</body>
+</html>

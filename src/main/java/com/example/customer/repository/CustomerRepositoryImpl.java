@@ -16,10 +16,10 @@ public class CustomerRepositoryImpl implements CustomerRepository{
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private final String INSERT_SQL = "INSERT INTO customer (firstName, lastName) VALUES (?,?)";
+    private final String INSERT_SQL = "INSERT INTO customer (firstName, lastName, phone, email) VALUES (?,?,?,?)";
     @Override
     public void add(Customer customer) {
-        jdbcTemplate.update(INSERT_SQL, customer.getFirstName(), customer.getLastName());
+        jdbcTemplate.update(INSERT_SQL, customer.getFirstName(), customer.getLastName(), customer.getPhone(), customer.getEmail());
     }
 
     private final String SELECT_BY_ID_SQL = "SELECT * FROM customer WHERE id = ?";
@@ -53,6 +53,8 @@ public class CustomerRepositoryImpl implements CustomerRepository{
             person.setId(rs.getInt("id"));
             person.setFirstName(rs.getString("firstName"));
             person.setLastName(rs.getString("lastName"));
+            person.setPhone(rs.getString("phone"));
+            person.setEmail(rs.getString("email"));
             return person;
         }
     }
