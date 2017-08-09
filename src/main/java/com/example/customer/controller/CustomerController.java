@@ -3,6 +3,8 @@ package com.example.customer.controller;
 import com.example.customer.domain.Customer;
 import com.example.customer.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,7 @@ public class CustomerController {
 
     @RequestMapping("/add-customer")
     public String addCustomers(Model model) {
+        showPrinciple();
         return "add-customer";
     }
 
@@ -63,5 +66,16 @@ public class CustomerController {
     @GetMapping("/admins-only")
     String admins() {
         return "administration";
+    }
+
+    private void showPrinciple() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("\n\n\n ===========>");
+        System.out.println("name " + authentication.getName());
+        System.out.println("details " + authentication.getDetails());
+        System.out.println("authorties " + authentication.getAuthorities());
+        System.out.println("credentials " + authentication.getCredentials());
+        System.out.println("principal " + authentication.getPrincipal());
+        System.out.println("is authenticated " + authentication.isAuthenticated());
     }
 }
