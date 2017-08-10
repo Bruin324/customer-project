@@ -1,0 +1,47 @@
+#spring.datasource.url=jdbc:postgresql://localhost:5432/customerdb
+#spring.datasource.username=customeruser
+#spring.datasource.password=customerpass
+#
+#SERVER.PORT 3000
+
+SERVER:
+  PORT: 3000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/customerdb
+    username: customeruser
+    password: customerpass
+
+facebook:
+  client:
+    clientId: 1783694524993517
+    clientSecret: 5d1f5e0170f3aa783606fe887ee64b75
+    accessTokenUri: https://graph.facebook.com/oauth/access_token
+    userAuthorizationUri: https://www.facebook.com/dialog/oauth
+    tokenName: oauth_token
+    authenticationScheme: query
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://graph.facebook.com/me
+
+github:
+  client:
+    clientId: 1c9b0aa80961f27fa0f8
+    clientSecret: 632785bd376ea2c97c6ac772bdb0a6263ce82ef8
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+
+google:
+  client:
+    clientId: 620992150988-2mre9rgcgp7v80anh1trbqrl1s3fit4j.apps.googleusercontent.com
+    clientSecret:  i4Fs1--Fu7q2Pm4ZXxPXwDEO
+    accessTokenUri: https://www.googleapis.com/oauth2/v4/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/v2/auth
+    clientAuthenticationScheme: form
+    scope: email
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v3/userinfo

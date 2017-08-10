@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Customers</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</div>
+<a sec:authorize="hasRole('ROLE_ADMIN')" href="/admins-only">Admin Portal | </a>
+<a href="/add-customer">Add a new Customer</a>
+<div th:each="customer : ${customers}">
+    <hr/>
+    Name: <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br/>
+    ID: <a th:href="@{'/view-customer/' + ${customer.id}}"><span th:text="${customer.id}"></span></a><br/>
+    Phone: <span th:text="${customer.phone}"></span><br/>
+    Email: <span th:text="${customer.email}"></span>
+</div>
+</body>
+</html>

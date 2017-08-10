@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login to Customers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Login</h1>
+<form th:action="@{/login}" method="post">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="username"/></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="Login"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<div>
+    With Github: <a href="/login/github">click here</a>
+</div>
+<div>
+    With Facebook: <a href="/login/facebook">click here</a>
+</div>
+<div>
+    With Google: <a href="/login/google">click here</a>
+</div>
+</body>
+</html>

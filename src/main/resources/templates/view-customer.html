@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>View Customer</title>
+</head>
+<body>
+
+Name: <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br/>
+ID: <span th:text="${customer.id}"></span><br/>
+Phone: <span th:text="${customer.phone}"></span><br/>
+Email: <span th:text="${customer.email}"></span><br/>
+
+<a href="/customers">Go Back to Customers Page</a>
+</body>
+</html>
