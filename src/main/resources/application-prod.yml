@@ -9,9 +9,9 @@ SERVER:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/customerdb
-    username: customeruser
-    password: customerpass
+    url: jdbc:postgresql://lec2-54-163-227-202.compute-1.amazonaws.com/dd5l31s1851am7
+    username: ispzxyggykiwkb
+    password: 8c01788e0e54788084876c23476942e91f014e2eb40b60b0822b46b2a1cbf7d3
 
 facebook:
   client:
