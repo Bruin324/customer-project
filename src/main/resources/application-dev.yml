@@ -12,6 +12,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/customerdb
     username: customeruser
     password: customerpass
+  thymeleaf:
+    cache: false
 
 facebook:
   client:
