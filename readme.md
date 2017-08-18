@@ -1,5 +1,5 @@
 # Gimme Customers
 
-Spring boot project used to implement Repositories (i.e. JDBC, Transactions and JPA), Controllers and Services
+A simple customer database utilizing SQL, Spring Boot, ThymeLeaf, JDBC, Hibernate, and OAuth
 
 Available at: https://gimme-customers.herokuapp.com
