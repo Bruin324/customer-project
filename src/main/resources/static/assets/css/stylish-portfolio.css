@@ -26,6 +26,11 @@ body {
             1px 1px 0 #fff;
 }
 
+.text-vertical-center h3 {
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 /* Custom Button Styles */
 
 .btn-dark {

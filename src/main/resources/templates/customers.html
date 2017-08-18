@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="en">
 <head>
     <meta charset="UTF-8"/>
     <title>Customers</title>
+    <link rel="stylesheet" href="/assets/css/styles.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
 </head>
 <body>
-<div sec:authorize="isAuthenticated()">
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
+<div sec:authorize="isAuthenticated()" class="container authentication">
+    <form class="text-center" th:action="@{/logout}" method="post">
+        Welcome <span sec:authentication="name">Bob</span>
+        <input class="btn btn-xs" type="submit" value="Sign Out" />
     </form>
 </div>
-<a sec:authorize="hasRole('ROLE_ADMIN')" href="/admins-only">Admin Portal | </a>
-<a href="/add-customer">Add a new Customer</a>
-<div th:each="customer : ${customers}">
-    <hr/>
-    Name: <span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span><br/>
-    ID: <a th:href="@{'/view-customer/' + ${customer.id}}"><span th:text="${customer.id}"></span></a><br/>
-    Phone: <span th:text="${customer.phone}"></span><br/>
-    Email: <span th:text="${customer.email}"></span>
+<div class="container">
+    <a class="btn btn-primary" href="/add-customer">Add a new Customer</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admins-only">Admin Portal</a>
 </div>
+<div class="container">
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td><a th:href="@{'/view-customer/' + ${customer.id}}"><span th:text="${customer.id}"></span></a></td>
+        <td><span th:text="${customer.firstName}"></span> <span th:text="${customer.lastName}"></span></td>
+        <td><span th:text="${customer.phone}"></span></td>
+        <td><span th:text="${customer.email}"></span></td>
+    </tr>
+</table>
+</div>
+
 </body>
 </html>
